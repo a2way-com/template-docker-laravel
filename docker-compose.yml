@@ -1,0 +1,20 @@
+version: '3'
+services:
+  php:
+    build:
+      context: .
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    volumes:
+      - ./src/:/app
+      - ./vols/user-home/:/home/www-data/
+      - ./vols/vendor/:/app/vendor/
+    env_file:
+      - ./env/main.env
+  web:
+    image: a2way/docker_base-openresty-php:v1.3.0
+    ports:
+      - 8000:80
+    environment:
+      - PHP_FPM_HOST=php

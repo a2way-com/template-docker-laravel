@@ -1,0 +1,15 @@
+version: '3'
+services:
+  php:
+    build:
+      context: .
+      dockerfile: prod.Dockerfile
+    image: dockerhub-username/project-name
+    env_file:
+      - ./env/main.env
+  web:
+    image: a2way/docker_base-openresty-php:v1.3.0
+    ports:
+      - 9000:80
+    environment:
+      - PHP_FPM_HOST=php
