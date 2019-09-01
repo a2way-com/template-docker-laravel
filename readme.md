@@ -28,3 +28,9 @@ export GID
 - Run `make shell`.
 - Inside the `php` container, run `composer install`.
 - Go to `localhost:8000` and make sure Laravel is running.
+
+## Making Production Image
+
+- Run `docker-compose -f prod.docker-compose.yml build`.
+- Run `docker images` to make sure a new Docker Image with the tag `dockerhub-username/project-name:latest` is created (You can change the resulting image name in the `prod.docker-compose.yml` file.).
+- Tag it as you wish and push to Docker Hub.
