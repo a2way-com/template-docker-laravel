@@ -1,4 +1,4 @@
-FROM a2way/docker_base-php-fpm-laravel:v1.0.0
+FROM a2way/docker_base-php-fpm-laravel:v1.4.0
 ARG UID
 ARG GID
 RUN apk --update add sudo shadow composer
